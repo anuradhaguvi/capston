@@ -24,6 +24,9 @@ app.use('/api/gold', require('./routes/gold'));
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
+  require('dotenv').config();
+console.log(process.env.MONGO_URI);
+console.log(process.env.JWT_SECRET);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
